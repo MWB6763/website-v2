@@ -1,0 +1,282 @@
+<!doctype html><html lang=tr>
+<head>
+<title>Kalıcı Komut Dosyaları - Scratch Eklentileri Belgeleri</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=description content="Kalıcı komut dosyaları, JavaScript' i arka planda çalıştırmanıza izin verir! Kullanıcıyı bir şeyler hakkında bilgilendirmek veya kullanıcı ihtiyaç duyduğunda hazır olması için verileri önceden yüklemek harikadır.">
+<meta name=author content>
+<link rel=icon href=/assets/img/icon.png>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scratchaddons.com/tr/docs/develop/addon-types/persistent-scripts/">
+<meta property="og:title" content="Kalıcı Komut Dosyaları">
+<meta property="og:description" content="Kalıcı komut dosyaları, JavaScript' i arka planda çalıştırmanıza izin verir! Kullanıcıyı bir şeyler hakkında bilgilendirmek veya kullanıcı ihtiyaç duyduğunda hazır olması için verileri önceden yüklemek harikadır.">
+<meta property="og:site_name" content="Scratch Eklentileri Belgeleri">
+<meta property="og:locale" content="tr">
+<meta property="og:image" content="https://scratchaddons.com/assets/img/icon-square.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="384">
+<meta property="og:image:height" content="384">
+<meta property="og:image:alt" content="Scratch Eklentileri' nin logosu">
+<meta name=twitter:card content="summary">
+<meta name=twitter:url content="https://scratchaddons.com/tr/docs/develop/addon-types/persistent-scripts/">
+<meta name=twitter:title content="Kalıcı Komut Dosyaları - Scratch Eklentileri Belgeleri">
+<meta name=twitter:description content="Kalıcı komut dosyaları, JavaScript' i arka planda çalıştırmanıza izin verir! Kullanıcıyı bir şeyler hakkında bilgilendirmek veya kullanıcı ihtiyaç duyduğunda hazır olması için verileri önceden yüklemek harikadır.">
+<meta name=twitter:image content="https://scratchaddons.com/assets/img/icon-square.png">
+<meta name=twitter:image:alt content="Scratch Eklentileri' nin logosu">
+<link rel=alternate hreflang=it href=https://scratchaddons.com/it/docs/develop/addon-types/persistent-scripts/><link rel=alternate hreflang=pt-br href=https://scratchaddons.com/pt-br/docs/develop/addon-types/persistent-scripts/><link rel=alternate hreflang=sl href=https://scratchaddons.com/sl/docs/develop/addon-types/persistent-scripts/>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css crossorigin>
+<link rel=stylesheet href=https://scratchaddons.com/assets/css/base.css>
+<script src=https://cdn.jsdelivr.net/combine/npm/jquery@3.5.1,npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js,npm/@iconify/iconify@1.0.7 crossorigin></script>
+<script async src=/assets/js/website-base.js></script>
+<script async defer data-domain=scratchaddons.com src=/assets/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+<link rel=stylesheet href=https://scratchaddons.com/assets/css/docs.css>
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark">
+<a href=/tr/ class=navbar-brand>
+<img src=/assets/img/icon.svg alt></img>
+<span>Scratch Eklentileri Belgeleri</span>
+</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbar-collapsible aria-controls=navbar-collapsible aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse" id=navbar-collapsible>
+<ul class="navbar-nav ml-md-auto">
+<li class="nav-item dropdown hide-from-spiders">
+<a class="nav-link dropdown-toggle" href=# id=navbar-languages role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Türkçe</a>
+<div class=dropdown-menu aria-labelledby=navbar-languages>
+<a class=dropdown-item href=https://scratchaddons.com/it/docs/develop/addon-types/persistent-scripts/>italiano</a><a class=dropdown-item href=https://scratchaddons.com/pt-br/docs/develop/addon-types/persistent-scripts/>português (Brasil)</a><a class=dropdown-item href=https://scratchaddons.com/sl/docs/develop/addon-types/persistent-scripts/>slovenščina</a>
+</div>
+</li>
+<li class=nav-item><a class=nav-link href=/tr/contributors>Katkısı Olanlar</a></li>
+<li class=nav-item><a class=nav-link href=/tr/feedback>Geri Bildirim Gönder</a></li>
+<li class=nav-item><a class=nav-link href=https://github.com/ScratchAddons/ScratchAddons aria-label="Repository on GitHub" rel=noopener>Depo <span class=iconify data-icon=simple-icons:github></span></a></li>
+<li class=nav-item id=install-nav><a class="nav-link install-btn ml-md-2" href=/tr/#install>İndir</a></li>
+</ul>
+</div>
+</nav>
+</header>
+<div><nav class="navbar navbar-light navbar-expand d-xl-none border-bottom">
+<button class="navbar-toggler d-block align-left d-lg-none" type=button data-toggle=collapse data-target=#docs-pages aria-controls=docs-pages aria-expanded=false aria-label="Belge gezinme çubuğunu göster/gizle">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="flex-grow-1 align-items-center mx-2 d-lg-none">
+<span>Belgelerde gezinme</span>
+</div>
+<div class="flex-grow-1 align-items-center mx-2 text-right">
+<span>İçindekiler</span>
+</div>
+<button class="navbar-toggler d-block d-xl-none align-right" type=button data-toggle=collapse data-target=#docs-toc aria-controls=docs-toc aria-expanded=false aria-label="İçindekiler çubuğunu göster/gizle">
+<span class=navbar-toggler-icon></span>
+</button>
+</nav></div>
+<main>
+<div class=container-fluid>
+<div class=row>
+<aside class="docs-pages col-lg-3 col-xl-2 d-lg-flex collapse order-1 order-lg-2 order-xl-1" id=docs-pages>
+<nav class=docs-nav aria-label="Docs navigation">
+<ul class="docs-nav-list text-muted"><li class=docs-nav-section>
+<span><a href=/tr/docs/ class="docs-nav-page pl-0 pr-2 active">Giriş</a>
+</span>
+<ul class="docs-nav-section-pages collapse show" id=docs-nav-section-pages-trdocs><li class=docs-nav-section>
+<span><a class="collapse-button collapsed" data-toggle=collapse href=#docs-nav-section-pages-trdocsgetting-started role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/tr/docs/getting-started/ class="docs-nav-page pl-0 pr-2 collapsed">Başlarken</a>
+</span>
+<ul class="docs-nav-section-pages collapse" id=docs-nav-section-pages-trdocsgetting-started>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsgetting-startedquick-start href=/tr/docs/getting-started/quick-start/>Hızlı Başlangıç</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsgetting-startedinstalling href=/tr/docs/getting-started/installing/>Yükleme</a>
+</li>
+</ul>
+</li><li class=docs-nav-section>
+<span><a class=collapse-button data-toggle=collapse href=#docs-nav-section-pages-trdocsdevelop role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/tr/docs/develop/ class="docs-nav-page pl-0 pr-2 active">Geliştirme</a>
+</span>
+<ul class="docs-nav-section-pages collapse show" id=docs-nav-section-pages-trdocsdevelop><li class=docs-nav-section>
+<span><a class="collapse-button collapsed" data-toggle=collapse href=#docs-nav-section-pages-trdocsdevelopgetting-started role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/tr/docs/develop/getting-started/ class="docs-nav-page pl-0 pr-2 collapsed">Başlarken</a>
+</span>
+<ul class="docs-nav-section-pages collapse" id=docs-nav-section-pages-trdocsdevelopgetting-started>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsdevelopgetting-startedaddon-basics href=/tr/docs/develop/getting-started/addon-basics/>Eklenti Temelleri</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsdevelopgetting-startedcreating-an-addon href=/tr/docs/develop/getting-started/creating-an-addon/>Bir Eklenti Oluşturma</a>
+</li>
+</ul>
+</li><li class=docs-nav-section>
+<span><a class=collapse-button data-toggle=collapse href=#docs-nav-section-pages-trdocsdevelopaddon-types role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/tr/docs/develop/addon-types/ class="docs-nav-page pl-0 pr-2 active">Eklenti Türleri</a>
+</span>
+<ul class="docs-nav-section-pages collapse show" id=docs-nav-section-pages-trdocsdevelopaddon-types>
+<li>
+<a class="docs-nav-page active" id=docs-nav-page-trdocsdevelopaddon-typespersistent-scripts href=/tr/docs/develop/addon-types/persistent-scripts/>Kalıcı Komut Dosyaları</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsdevelopaddon-typesuserscripts href=/tr/docs/develop/addon-types/userscripts/>Kullanıcı Komut Dosyaları</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsdevelopaddon-typesuserstyles href=/tr/docs/develop/addon-types/userstyles/>Kullanıcı Stilleri</a>
+</li>
+</ul>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsdevelopadding-an-icon-to-a-setting-name href=/tr/docs/develop/adding-an-icon-to-a-setting-name/>Bir Ayar için Simge Ekleme</a>
+</li>
+</ul>
+</li><li class=docs-nav-section>
+<span><a class="collapse-button collapsed" data-toggle=collapse href=#docs-nav-section-pages-trdocslocalization role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/tr/docs/localization/ class="docs-nav-page pl-0 pr-2 collapsed">Yerelleştirme</a>
+</span>
+<ul class="docs-nav-section-pages collapse" id=docs-nav-section-pages-trdocslocalization>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocslocalizationlocalizing-addons href=/tr/docs/localization/localizing-addons/>Eklentileri Yerelleştirme</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocslocalizationjoining-the-localization-team href=/tr/docs/localization/joining-the-localization-team/>Yerelleştirme Ekibine Katılma</a>
+</li>
+</ul>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-trdocsfaq href=/tr/docs/faq/>Sık Sorulan Sorular</a>
+</li>
+</ul>
+</li></ul>
+</nav>
+</aside>
+<article class="docs-main col col-lg-9 col-xl-8 order-3 order-lg-3 order-xl-2">
+<h1>Kalıcı Komut Dosyaları</h1>
+<blockquote>
+<p><strong>Mümkün olduğunca kalıcı komut dosyalarından kaçınmanızı öneririz. Eğer <a href=https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/#background-service-workers>Manifest V3</a>' e geçiş yapılırsa, arka plan sayfaları yerine hizmet çalışanlarını kullanmamızı ve kalıcı komut dosyalarını bir meydan okuma yapmak gerektirecektir. Geçiş yaptığımızda ne kadar az kalıcı komut dosyası olursa o kadar iyi olur.</strong></p>
+</blockquote>
+<h2 id=o-da-neyin-nesi>O da neyin nesi? <a href=#o-da-neyin-nesi class=anchor aria-label=Anchor></a></h2><p>Kalıcı komut dosyaları, JavaScript&rsquo;i arka planda çalıştırmanıza izin verir! Kullanıcıyı bir şeyler hakkında bilgilendirmek veya kullanıcı ihtiyaç duyduğunda hazır olması için verileri önceden yüklemek harikadır.</p>
+<h2 id=kalıcı-bir-komut-dosyasını-nasıl-ekleyebilirim>Kalıcı bir komut dosyasını nasıl ekleyebilirim? <a href=#kal%c4%b1c%c4%b1-bir-komut-dosyas%c4%b1n%c4%b1-nas%c4%b1l-ekleyebilirim class=anchor aria-label=Anchor></a></h2><p><strong>Eklentinizde herhangi bir değişiklik yaptıktan sonra Scratch Eklentilerini <code>chrome://extensions</code> dan yenilemeyi unutmayın.</strong>
+Eklentinizin manifest dosyasına (addon.json' a) gidin ve <code>"persistent_scripts"</code> adlı bir özellik ekleyin.
+Eklentiniz yalnızca bir kalıcı komut dosyası kullanacak olsa bile bu özellik bir dizi olmalıdır.
+Dizinin her öğesi, bir JS dosyasını gösteren ilgili bir URL bulundurmalı.
+Örnek manifest:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Scratch Mesajlaşma&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Scratch mesajlarınızı kolayca okumanızı ve yanıtlamanızı sağlar.&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;persistent_scripts&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;background.js&#34;</span><span class=p>],</span>
+  <span class=nt>&#34;tags&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;community&#34;</span><span class=p>],</span>
+  <span class=nt>&#34;enabled_by_default&#34;</span><span class=p>:</span> <span class=kc>false</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=javascript-dosyası-nasıl-görünüyor>JavaScript dosyası nasıl görünüyor? <a href=#javascript-dosyas%c4%b1-nas%c4%b1l-g%c3%b6r%c3%bcn%c3%bcyor class=anchor aria-label=Anchor></a></h2><p>Kalıcı komut dosyalarının yanı sıra kullanıcı komut dosyası, çalışması için belirli bir yapı gerektirir.
+Kalıcı komut dosyaları için, tüm kodunuzu şuna benzeyen bir işlevin içine yazmanız <strong>zorunludur</strong>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Merhaba, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></div><p>Daha temiz bir koda sahip olmak için kendi fonksiyonlarınızı yazmak istiyorsanız, bunları ana fonksiyonların içine dahil etmelisiniz:
+<strong>Bu çalışmalı:</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=c1>// Bu çalışıyor!
+</span><span class=c1></span>  <span class=nx>sayHello</span><span class=p>();</span>
+  <span class=kd>function</span> <span class=nx>sayHello</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Merhaba, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p><strong>Bu işe YARAMAYACAK:</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=c1>// Bu işe YARAMAZ!
+</span><span class=c1></span>  <span class=nx>sayMerhaba</span><span class=p>();</span>
+<span class=p>}</span>
+<span class=kd>function</span> <span class=nx>sayMerhaba</span><span class=p>()</span> <span class=p>{</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Merhaba, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+  <span class=c1>// Hata: eklenti tanımlı değil!
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></div><h2 id=eklenti-apileridocsdevelopingaddon-apis-reference><a href=/docs/developing/addon-apis-reference><code>eklenti.*</code> API&rsquo;leri</a> <a href=#eklenti-apileridocsdevelopingaddon-apis-reference class=anchor aria-label=Anchor></a></h2><p>Çoğu <code>eklenti.*</code> API' sine kalıcı komut dosyalarından erişebilirsiniz. Daha fazla bilgi için belgelere bakın.</p>
+<h2 id=kalıcı-komut-dosyalarının-teknik-yönleri>Kalıcı komut dosyalarının teknik yönleri <a href=#kal%c4%b1c%c4%b1-komut-dosyalar%c4%b1n%c4%b1n-teknik-y%c3%b6nleri class=anchor aria-label=Anchor></a></h2><p>Teknik olarak konuşursak, her kalıcı kod dosyası, bir fonksiyonu dışa aktaran bir JavaScript modülüdür. JavaScript modülleri her zaman &ldquo;katı mod&rdquo;' da çalışır.
+Bu, aynı eklentinin kalıcı komut dosyalarının değişkenleri ve işlevleri PAYLAŞMADIĞI anlamına gelir! Bunu yapmak istiyorsanız, <code>global</code> nesneyi kullanmalısınız (daha fazla bilgi aşağıda).
+Scratch Eklentileri daha sonra dışa aktarılan bu işlev modüllerini çağırır ve özel sarmalayıcıların yanı sıra <code>eklenti.*</code> API' lerine erişmesini sağlar:</p>
+<ul>
+<li><code>addon</code>: <a href=/docs/developing/addon-apis-reference><code>addon.*</code> API' lerine</a> kalıcı komut dosyası erişimi verir.</li>
+<li><code>global</code>: bu, aynı eklentinin tüm kalıcı komut dosyaları arasında paylaşılan bir nesnesidir. <strong>Örnek kullanım:</strong></li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=c1>// background-1.js
+</span><span class=c1></span><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=nx>global</span><span class=p>.</span><span class=nx>sayMerhaba</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Merhaba, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=c1>// background-2.js
+</span><span class=c1></span><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=nx>global</span><span class=p>.</span><span class=nx>sayMerhaba</span><span class=p>();</span>
+  <span class=c1>// Bu, eklenti bildiriminde olduğu sürece, background-1.js, persistan_scripts dizisindeki background-2.js&#39;den önce olduğu sürece çalışır.
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></div><ul>
+<li><code>console</code>: Bu, gördüğünüz günlüğü hangi eklentinin tetiklediğini kolayca görmenizi sağlayan bir sarmalayıcıdır.</li>
+<li><code>setTimeout</code> ve <code>setInterval</code>: eklentiniz çalışırken devre dışı bırakılırsa, Scratch Eklentilerin bekleyen zaman aşımlarını ve aralıkları durdurmak için beklemesi gerekir. Bunu başarılı bir şekilde yapabilmek için, eklentilerin <code>window.setTimeout</code> ve <code>window.setInterval</code> yerine bu sarmalayıcıları kullanması gerekir.</li>
+<li><code>clearTimeout</code> ve <code>clearInterval</code>: bellek sızıntılarını önlemek için bunların da sarılması gerekir - Scratch Eklentileri, bir zaman aşımını veya aralığı temizlediğinizi bilmez ve zaman aşımı/aralık kimliğini sebepsiz yere depolar. <code>window.clearTimeout</code> veya <code>window.clearInterval</code> kullanmamalısınız.</li>
+</ul>
+<h2 id=kalıcı-komut-dosyalarında-hata-ayıklama>Kalıcı komut dosyalarında hata ayıklama <a href=#kal%c4%b1c%c4%b1-komut-dosyalar%c4%b1nda-hata-ay%c4%b1klama class=anchor aria-label=Anchor></a></h2><p><strong>Eklentinizde herhangi bir değişiklik yaptıktan sonra Scratch Eklentilerini <code>chrome://extensions</code>' dan yenilemeyi unutmayın.</strong>
+Kalıcı komut dosyalarında hata ayıklamak için öncelikle eklentinizin etkin olduğundan emin olun.
+Ardından, <code>chrome://extensions</code>' a gidin, geliştirici modunun açık olduğundan emin olun ve Scratch Eklentilerini bulun.
+&ldquo;Görünümleri inceleyin: background/background.html&rdquo; yazan yere tıklayın.
+İşte bu kadar - eklentinizdeki tüm konsol günlükleri orada olacak ve bir devtools uzmanıysanız, kodunuzdaki kesme işaretlerini ayarlamakta herhangi bir sorun yaşamayacaksınız.
+Profesyonel ipucu: Dosyanızı her seferinde değiştirmeden <code>addon.*</code> API' sini test etmek istiyorsanız, eklentinizi (ana işlevin içinde iken) <code>window.addon = addon;</code> yapın ve eklentinizin konsolundan <code>addon</code> nesnesini kaldırın. Bu depoya katkıda bulunmadan önce bu satırı kaldırdığınızdan emin olun! Kalıcı komut dosyaları genel nesneyi kirletmemelidir.</p>
+<hr>
+<p class=text-muted>
+<a href=https://github.com/ScratchAddons/website-v2/edit/master/content/docs/develop/addon-types/persistent-scripts.md>Bu sayfayı geliştirin</a>
+</p>
+</article>
+<aside class="docs-toc text-muted col-xl-2 d-xl-flex collapse order-2 order-lg-1 order-xl-3" id=docs-toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#o-da-neyin-nesi>O da neyin nesi?</a></li>
+<li><a href=#kalıcı-bir-komut-dosyasını-nasıl-ekleyebilirim>Kalıcı bir komut dosyasını nasıl ekleyebilirim?</a></li>
+<li><a href=#javascript-dosyası-nasıl-görünüyor>JavaScript dosyası nasıl görünüyor?</a></li>
+<li><a href=#eklenti-apileridocsdevelopingaddon-apis-reference><a href=/docs/developing/addon-apis-reference><code>eklenti.*</code> API&rsquo;leri</a></a></li>
+<li><a href=#kalıcı-komut-dosyalarının-teknik-yönleri>Kalıcı komut dosyalarının teknik yönleri</a></li>
+<li><a href=#kalıcı-komut-dosyalarında-hata-ayıklama>Kalıcı komut dosyalarında hata ayıklama</a></li>
+</ul>
+</nav>
+</aside>
+</div>
+</div>
+</main>
+<a id=dark-toggle class=btn title="Koyu temayı açmak için tıklayın." aria-label="Koyu tema ayarı" data-toggle=tooltip data-placement=left></a>
+<footer class=footer>
+<div class=container>
+<section class=footer-intro>
+<a href=/tr/ class="navbar-brand mb-3">
+<img src=/assets/img/icon.svg alt="Scratch Eklentileri" class=mr-2></img>
+<span>Scratch Eklentileri</span>
+</a>
+<iframe src="https://ghbtns.com/github-btn.html?user=ScratchAddons&repo=ScratchAddons&type=star&count=true&size=large" frameborder=0 scrolling=0 width=170 height=30 title=GitHub></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=ScratchAddons&repo=ScratchAddons&type=fork&count=true&size=large" frameborder=0 scrolling=0 width=170 height=30 title=GitHub></iframe>
+</section>
+<section>
+<h3>Sayfalar</h3>
+<a href=/tr/docs/faq>SSS</a>
+<a href=/tr/feedback>Geri Bildirim Gönder</a>
+<a href=/tr/contributors>Katkısı Olanlar</a>
+<a href=/tr/changelog>Değişiklik Günlüğü</a>
+<a href=/tr/addons>Eklentiler</a>
+</section>
+<section>
+<h3>Tartışma</h3>
+<a href=https://github.com/ScratchAddons/ScratchAddons/discussions rel=noopener>Tartışma Forumu</a>
+<a href=https://github.com/ScratchAddons/ScratchAddons/issues rel=noopener>Sorunlar</a>
+<a href=https://discord.gg/R5NBqwMjNc rel=noopener>Topluluk Discord'u</a>
+<a href=https://discord.gg/Ak8sCDQ rel=noopener>Geliştirici Discord'u</a>
+</section>
+<section>
+<h3>Kaynaklar</h3>
+<a href=https://github.com/ScratchAddons rel=noopener>Organizasyon</a>
+<a href=https://github.com/ScratchAddons/ScratchAddons rel=noopener>Depo</a>
+<a href=/tr/docs rel=noopener>Dökümantasyon</a>
+<a href=https://youtube.com/ScratchAddons rel=noopener>YouTube</a>
+</section>
+<section class="w-100 mt-3">
+<p>© 2021 Scratch Eklentileri katkıda bulunanlar</p>
+<p>Scratch Eklentileri, Scratch, Scratch Takımı, Scratch Vakfı veya herhangi bir kuruluşa bağlı değildir veya kısaca herhangi bir şekilde resmi olarak bağlantısı yoktur.</p>
+<p>Scratch Eklentileri, GNU General Public License v3.0 altında lisanslanmıştır.</p>
+</section>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html><html lang=sl>
+<head>
+<title>Skripte v ozadju - Dokumentacija Scratch Addons</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=description content="Skripte v ozadju omogočajo izvajanje kode JavaScript v ozadju, neodvisno od odprtih Scratchevih strani! Lahko obvestijo uporabnika o stvareh ali pa vnaprej naložijo podatke, da so pripravljeni, ko jih uporabnik potrebuje.">
+<meta name=author content>
+<link rel=icon href=/assets/img/icon.png>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scratchaddons.com/sl/docs/develop/addon-types/persistent-scripts/">
+<meta property="og:title" content="Skripte v ozadju">
+<meta property="og:description" content="Skripte v ozadju omogočajo izvajanje kode JavaScript v ozadju, neodvisno od odprtih Scratchevih strani! Lahko obvestijo uporabnika o stvareh ali pa vnaprej naložijo podatke, da so pripravljeni, ko jih uporabnik potrebuje.">
+<meta property="og:site_name" content="Dokumentacija Scratch Addons">
+<meta property="og:locale" content="sl">
+<meta property="og:image" content="https://scratchaddons.com/assets/img/icon-square.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="384">
+<meta property="og:image:height" content="384">
+<meta property="og:image:alt" content="Logotip Scratch Addons">
+<meta name=twitter:card content="summary">
+<meta name=twitter:url content="https://scratchaddons.com/sl/docs/develop/addon-types/persistent-scripts/">
+<meta name=twitter:title content="Skripte v ozadju - Dokumentacija Scratch Addons">
+<meta name=twitter:description content="Skripte v ozadju omogočajo izvajanje kode JavaScript v ozadju, neodvisno od odprtih Scratchevih strani! Lahko obvestijo uporabnika o stvareh ali pa vnaprej naložijo podatke, da so pripravljeni, ko jih uporabnik potrebuje.">
+<meta name=twitter:image content="https://scratchaddons.com/assets/img/icon-square.png">
+<meta name=twitter:image:alt content="Logotip Scratch Addons">
+<link rel=alternate hreflang=tr href=https://scratchaddons.com/tr/docs/develop/addon-types/persistent-scripts/><link rel=alternate hreflang=it href=https://scratchaddons.com/it/docs/develop/addon-types/persistent-scripts/><link rel=alternate hreflang=pt-br href=https://scratchaddons.com/pt-br/docs/develop/addon-types/persistent-scripts/>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css crossorigin>
+<link rel=stylesheet href=https://scratchaddons.com/assets/css/base.css>
+<script src=https://cdn.jsdelivr.net/combine/npm/jquery@3.5.1,npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js,npm/@iconify/iconify@1.0.7 crossorigin></script>
+<script async src=/assets/js/website-base.js></script>
+<script async defer data-domain=scratchaddons.com src=/assets/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+<link rel=stylesheet href=https://scratchaddons.com/assets/css/docs.css>
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark">
+<a href=/sl/ class=navbar-brand>
+<img src=/assets/img/icon.svg alt></img>
+<span>Dokumentacija Scratch Addons</span>
+</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbar-collapsible aria-controls=navbar-collapsible aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse" id=navbar-collapsible>
+<ul class="navbar-nav ml-md-auto">
+<li class="nav-item dropdown hide-from-spiders">
+<a class="nav-link dropdown-toggle" href=# id=navbar-languages role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>slovenščina</a>
+<div class=dropdown-menu aria-labelledby=navbar-languages>
+<a class=dropdown-item href=https://scratchaddons.com/tr/docs/develop/addon-types/persistent-scripts/>Türkçe</a><a class=dropdown-item href=https://scratchaddons.com/it/docs/develop/addon-types/persistent-scripts/>italiano</a><a class=dropdown-item href=https://scratchaddons.com/pt-br/docs/develop/addon-types/persistent-scripts/>português (Brasil)</a>
+</div>
+</li>
+<li class=nav-item><a class=nav-link href=/sl/contributors>Sodelavci</a></li>
+<li class=nav-item><a class=nav-link href=/sl/feedback>Povratne informacije</a></li>
+<li class=nav-item><a class=nav-link href=https://github.com/ScratchAddons/ScratchAddons aria-label="Repository on GitHub" rel=noopener>Izvirna koda <span class=iconify data-icon=simple-icons:github></span></a></li>
+<li class=nav-item id=install-nav><a class="nav-link install-btn ml-md-2" href=/sl/#install>Namesti</a></li>
+</ul>
+</div>
+</nav>
+</header>
+<div><nav class="navbar navbar-light navbar-expand d-xl-none border-bottom">
+<button class="navbar-toggler d-block align-left d-lg-none" type=button data-toggle=collapse data-target=#docs-pages aria-controls=docs-pages aria-expanded=false aria-label="Pokaži/skrij stolpec za navigacijo">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="flex-grow-1 align-items-center mx-2 d-lg-none">
+<span>Navigacija po dokumentaciji</span>
+</div>
+<div class="flex-grow-1 align-items-center mx-2 text-right">
+<span>Vsebina</span>
+</div>
+<button class="navbar-toggler d-block d-xl-none align-right" type=button data-toggle=collapse data-target=#docs-toc aria-controls=docs-toc aria-expanded=false aria-label="Pokaži/skrij stolpec s kazalom vsebine">
+<span class=navbar-toggler-icon></span>
+</button>
+</nav></div>
+<main>
+<div class=container-fluid>
+<div class=row>
+<aside class="docs-pages col-lg-3 col-xl-2 d-lg-flex collapse order-1 order-lg-2 order-xl-1" id=docs-pages>
+<nav class=docs-nav aria-label="Docs navigation">
+<ul class="docs-nav-list text-muted"><li class=docs-nav-section>
+<span><a href=/sl/docs/ class="docs-nav-page pl-0 pr-2 active">Naslovna stran</a>
+</span>
+<ul class="docs-nav-section-pages collapse show" id=docs-nav-section-pages-sldocs><li class=docs-nav-section>
+<span><a class="collapse-button collapsed" data-toggle=collapse href=#docs-nav-section-pages-sldocsgetting-started role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/sl/docs/getting-started/ class="docs-nav-page pl-0 pr-2 collapsed">Za začetek</a>
+</span>
+<ul class="docs-nav-section-pages collapse" id=docs-nav-section-pages-sldocsgetting-started>
+</ul>
+</li><li class=docs-nav-section>
+<span><a class=collapse-button data-toggle=collapse href=#docs-nav-section-pages-sldocsdevelop role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/sl/docs/develop/ class="docs-nav-page pl-0 pr-2 active">Za razvijalce</a>
+</span>
+<ul class="docs-nav-section-pages collapse show" id=docs-nav-section-pages-sldocsdevelop><li class=docs-nav-section>
+<span><a class="collapse-button collapsed" data-toggle=collapse href=#docs-nav-section-pages-sldocsdevelopgetting-started role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/sl/docs/develop/getting-started/ class="docs-nav-page pl-0 pr-2 collapsed">Začetek</a>
+</span>
+<ul class="docs-nav-section-pages collapse" id=docs-nav-section-pages-sldocsdevelopgetting-started>
+<li>
+<a class=docs-nav-page id=docs-nav-page-sldocsdevelopgetting-startedaddon-basics href=/sl/docs/develop/getting-started/addon-basics/>O dodatkih</a>
+</li>
+</ul>
+</li><li class=docs-nav-section>
+<span><a class=collapse-button data-toggle=collapse href=#docs-nav-section-pages-sldocsdevelopaddon-types role=button aria-expanded=true><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#626262"><path fill-rule="evenodd" d="M4.646 1.646a.5.5.0 01.708.0l6 6a.5.5.0 010 .708l-6 6a.5.5.0 01-.708-.708L10.293 8 4.646 2.354a.5.5.0 010-.708z"/></g></svg></a>
+<a href=/sl/docs/develop/addon-types/ class="docs-nav-page pl-0 pr-2 active">Vrste dodatkov</a>
+</span>
+<ul class="docs-nav-section-pages collapse show" id=docs-nav-section-pages-sldocsdevelopaddon-types>
+<li>
+<a class="docs-nav-page active" id=docs-nav-page-sldocsdevelopaddon-typespersistent-scripts href=/sl/docs/develop/addon-types/persistent-scripts/>Skripte v ozadju</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-sldocsdevelopaddon-typesuserscripts href=/sl/docs/develop/addon-types/userscripts/>Uporabniške skripte</a>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-sldocsdevelopaddon-typesuserstyles href=/sl/docs/develop/addon-types/userstyles/>Uporabniški slogi</a>
+</li>
+</ul>
+</li>
+<li>
+<a class=docs-nav-page id=docs-nav-page-sldocsdevelopadding-an-icon-to-a-setting-name href=/sl/docs/develop/adding-an-icon-to-a-setting-name/>Dodajanje ikone k imenu nastavitve</a>
+</li>
+</ul>
+</li>
+</ul>
+</li></ul>
+</nav>
+</aside>
+<article class="docs-main col col-lg-9 col-xl-8 order-3 order-lg-3 order-xl-2">
+<h1>Skripte v ozadju</h1>
+<blockquote>
+<p><strong>Če je mogoče, prosimo, da se skriptam v ozadju izogibate. Ko bomo začeli uporabljati <a href=https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/#background-service-workers>Manifest V3</a>, bomo morali namesto strani v ozadju uporabiti vmesnik Service Workers, zato bo delo s skriptami v ozadju težje. Najbolje je, da je skript v ozadju čim manj.</strong></p>
+</blockquote>
+<h2 id=kaj-to-so>Kaj to so? <a href=#kaj-to-so class=anchor aria-label=Anchor></a></h2><p>Skripte v ozadju omogočajo izvajanje kode JavaScript v ozadju, neodvisno od odprtih Scratchevih strani! Lahko obvestijo uporabnika o stvareh ali pa vnaprej naložijo podatke, da so pripravljeni, ko jih uporabnik potrebuje.</p>
+<h2 id=kako-dodam-skripto-v-ozadju>Kako dodam skripto v ozadju? <a href=#kako-dodam-skripto-v-ozadju class=anchor aria-label=Anchor></a></h2><p><strong>Vedno znova naložite Scratch Addons na strani <code>chrome://extensions</code>, potem ko spremenite vaš dodatek.</strong><br>
+Odprite datoteko addon.json in dodajte lastnost <code>"persistent_scripts"</code>.<br>
+Ta lastnost mora biti seznam, tudi če bo imel dodatek samo eno skripto v ozadju.<br>
+Vsak element seznama mora biti relativna pot do datoteke JS.
+Primer datoteke addon.json:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Scratch Messaging&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Provides easy reading and replying to your Scratch messages.&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;persistent_scripts&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;background.js&#34;</span><span class=p>],</span>
+  <span class=nt>&#34;tags&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;community&#34;</span><span class=p>],</span>
+  <span class=nt>&#34;enabled_by_default&#34;</span><span class=p>:</span> <span class=kc>false</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=kako-izgleda-datoteka-javascript>Kako izgleda datoteka JavaScript? <a href=#kako-izgleda-datoteka-javascript class=anchor aria-label=Anchor></a></h2><p>Skripte v ozadju, tako kot tudi uporabniške skripte, delujejo le, če so sestavljene na določen način.<br>
+V skriptah v ozadju <strong>mora</strong> biti vsa koda v funkciji, ki izgleda nekako tako:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Hello, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></div><p>Če bi radi za lažje berljivo kodo napisali več funkcij, to naredite znotraj glavne funkcije.<br>
+<strong>To deluje:</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=c1>// To deluje!
+</span><span class=c1></span>  <span class=nx>sayHello</span><span class=p>();</span>
+  <span class=kd>function</span> <span class=nx>sayHello</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Hello, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p><strong>To NE bo delovalo:</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=c1>// To NE deluje!
+</span><span class=c1></span>  <span class=nx>sayHello</span><span class=p>();</span>
+<span class=p>}</span>
+<span class=kd>function</span> <span class=nx>sayHello</span><span class=p>()</span> <span class=p>{</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Hello, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+  <span class=c1>// Napaka: addon ni definiran!
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></div><h2 id=vmesniki-addondocsdevelopingaddon-apis-reference><a href=/docs/developing/addon-apis-reference>Vmesniki <code>addon.*</code></a> <a href=#vmesniki-addondocsdevelopingaddon-apis-reference class=anchor aria-label=Anchor></a></h2><p>Skripte v ozadju lahko dostopajo do večine vmesnikov <code>addon.*</code>. Za več informacij preberite dokumentacijo.</p>
+<h2 id=tehnične-lastnosti-skript-v-ozadju>Tehnične lastnosti skript v ozadju <a href=#tehni%c4%8dne-lastnosti-skript-v-ozadju class=anchor aria-label=Anchor></a></h2><p>Vsaka skripta v ozadju je modul JavaScript, ki izvozi funkcijo. Moduli JavaScript se vedno izvajajo v &ldquo;strogem načinu&rdquo;.<br>
+To pomeni, da si skripte v ozadju istega dodatka NE delijo spremenljivk in funkcij! Če to potrebujete, uporabite objekt <code>global</code> (več informacij je spodaj).
+Scratch Addons pokliče funkcijo, ki jo je modul izvozil, ter ji da dostop do vmesnikov <code>addon.*</code> in posebnih objektov:</p>
+<ul>
+<li><code>addon</code>: skriptam v ozadju omogoči dostop do <a href=/docs/developing/addon-apis-reference>vmesnikov <code>addon.*</code></a>.</li>
+<li><code>global</code>: ta objekt si delijo vse skripte v ozadju istega dodatka. <strong>Primer uporabe:</strong></li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=c1>// background-1.js
+</span><span class=c1></span><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=nx>global</span><span class=p>.</span><span class=nx>sayHello</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Hello, &#34;</span> <span class=o>+</span> <span class=nx>addon</span><span class=p>.</span><span class=nx>auth</span><span class=p>.</span><span class=nx>username</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=c1>// background-2.js
+</span><span class=c1></span><span class=kr>export</span> <span class=k>default</span> <span class=kr>async</span> <span class=kd>function</span> <span class=p>({</span> <span class=nx>addon</span><span class=p>,</span> <span class=nx>global</span><span class=p>,</span> <span class=nx>console</span><span class=p>,</span> <span class=nx>setTimeout</span><span class=p>,</span> <span class=nx>setInterval</span><span class=p>,</span> <span class=nx>clearTimeout</span><span class=p>,</span> <span class=nx>clearInterval</span> <span class=p>})</span> <span class=p>{</span>
+  <span class=nx>global</span><span class=p>.</span><span class=nx>sayHello</span><span class=p>();</span>
+  <span class=c1>// To deluje, če je v seznamu persistent_scripts v datoteki addon.json background-1.js pred background-2.js.
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></div><ul>
+<li><code>console</code>: omogoči, da v brskalnikovem orodju za razvijalce vidite, kateri dodatek je kaj izpisal.</li>
+<li><code>setTimeout</code> in <code>setInterval</code>: če je dodatek izključen med delovanjem, mora Scratch Addons ustaviti vse čakajoče zamike. Da to lahko naredi, morajo dodatki namesto <code>window.setTimeout</code> in <code>window.setInterval</code> uporabiti ti dve funkciji.</li>
+<li><code>clearTimeout</code> in <code>clearInterval</code>: tudi ti dve funkciji sta zamenjani zaradi porabe spomina - Scratch Addons ne bi vedel, da ste odstranili zamik, zato bi ID tega ostal shranjen brez razloga. Funkcij <code>window.clearTimeout</code> in <code>window.clearInterval</code> ne uporabljajte.</li>
+</ul>
+<h2 id=razhroščevanje-skript-v-ozadju>Razhroščevanje skript v ozadju <a href=#razhro%c5%a1%c4%8devanje-skript-v-ozadju class=anchor aria-label=Anchor></a></h2><p><strong>Vedno znova naložite Scratch Addons na strani <code>chrome://extensions</code>, potem ko spremenite vaš dodatek.</strong><br>
+Pred razhroščevanjem se prepričajte, da je dodatek vključen.<br>
+Potem pojdite na stran <code>chrome://extensions</code>. Prepričajte se, da je vključen način za razvijalce, in poiščite Scratch Addons.<br>
+Kliknite povezavo &ldquo;inspect views: background/background.html&rdquo;.<br>
+To je vse - tam bodo vsi izpisi vašega dodatka, in če ste profesionalni uporabnik orodja za razvijalce, ne boste imeli težav z dodajanjem prekinitev (breakpoints).<br>
+Če bi radi preizkušali vmesnik <code>addon.*</code>, ne da bi vsakič spremenili skripto, uporabite <code>window.addon = addon;</code> (v glavni funkciji), da lahko iz konzole dostopate do svojega objekta <code>addon</code>. Ne pozabite te vrstice odstraniti, preden dodatek prispevate na GitHub! Skripte v ozadju ne smejo onesnažiti globalnega objekta.</p>
+<hr>
+<p class=text-muted>
+<a href=https://github.com/ScratchAddons/website-v2/edit/master/content/docs/develop/addon-types/persistent-scripts.md>Izboljšajte to stran.</a>
+</p>
+</article>
+<aside class="docs-toc text-muted col-xl-2 d-xl-flex collapse order-2 order-lg-1 order-xl-3" id=docs-toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#kaj-to-so>Kaj to so?</a></li>
+<li><a href=#kako-dodam-skripto-v-ozadju>Kako dodam skripto v ozadju?</a></li>
+<li><a href=#kako-izgleda-datoteka-javascript>Kako izgleda datoteka JavaScript?</a></li>
+<li><a href=#vmesniki-addondocsdevelopingaddon-apis-reference><a href=/docs/developing/addon-apis-reference>Vmesniki <code>addon.*</code></a></a></li>
+<li><a href=#tehnične-lastnosti-skript-v-ozadju>Tehnične lastnosti skript v ozadju</a></li>
+<li><a href=#razhroščevanje-skript-v-ozadju>Razhroščevanje skript v ozadju</a></li>
+</ul>
+</nav>
+</aside>
+</div>
+</div>
+</main>
+<a id=dark-toggle class=btn title="Kliknite za preklop med svetlim in temnim načinom." aria-label="Gumb za temni način" data-toggle=tooltip data-placement=left></a>
+<footer class=footer>
+<div class=container>
+<section class=footer-intro>
+<a href=/sl/ class="navbar-brand mb-3">
+<img src=/assets/img/icon.svg alt="Scratch Addons" class=mr-2></img>
+<span>Scratch Addons</span>
+</a>
+<iframe src="https://ghbtns.com/github-btn.html?user=ScratchAddons&repo=ScratchAddons&type=star&count=true&size=large" frameborder=0 scrolling=0 width=170 height=30 title=GitHub></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=ScratchAddons&repo=ScratchAddons&type=fork&count=true&size=large" frameborder=0 scrolling=0 width=170 height=30 title=GitHub></iframe>
+</section>
+<section>
+<h3>Strani</h3>
+<a href=/sl/docs/faq>Pogosta vprašanja</a>
+<a href=/sl/feedback>Povratne informacije</a>
+<a href=/sl/contributors>Sodelavci</a>
+<a href=/sl/changelog>Seznam sprememb</a>
+<a href=/sl/addons>Dodatki</a>
+</section>
+<section>
+<h3>Razpravljaj</h3>
+<a href=https://github.com/ScratchAddons/ScratchAddons/discussions rel=noopener>Forum</a>
+<a href=https://github.com/ScratchAddons/ScratchAddons/issues rel=noopener>Težave</a>
+<a href=https://discord.gg/R5NBqwMjNc rel=noopener>Discord za skupnost</a>
+<a href=https://discord.gg/Ak8sCDQ rel=noopener>Discord za razvijalce</a>
+</section>
+<section>
+<h3>Gradivo</h3>
+<a href=https://github.com/ScratchAddons rel=noopener>Organizacija</a>
+<a href=https://github.com/ScratchAddons/ScratchAddons rel=noopener>Izvirna koda</a>
+<a href=/sl/docs rel=noopener>Dokumentacija</a>
+<a href=https://youtube.com/ScratchAddons rel=noopener>YouTube</a>
+</section>
+<section class="w-100 mt-3">
+<p>© 2021 sodelavci Scratch Addons</p>
+<p>Scratch Addons ni na noben način povezan s Scratchem, skupino Scratch ali fundacijo Scratch.</p>
+<p>Scratch Addons je na voljo pod pogoji GNU General Public License v3.0.</p>
+</section>
+</div>
+</footer>
+</body>
+</html>
